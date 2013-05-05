@@ -1,3 +1,4 @@
+#! /usr/bin/python
 from serial import *
 from array import *
 import sampa_to_speakjet_se
@@ -64,17 +65,17 @@ def getSampa(input, file):
 	f = open(file,'r')
 	
 	for line in f:
-		
 		word = line.split(' = ')
 		
 		if(word[0] == input):
 			print "Found word"
 			return word[1]
 	
+	print "not found"
 	return -1
 
 def lookupAndConvert(input,lexikon):
-
+	print lexikon
 	sampa_string = getSampa(input,lexikon)
 
 	speakjet_code = -1
